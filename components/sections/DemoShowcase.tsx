@@ -45,13 +45,6 @@ export default function DemoShowcase() {
         <>
             <section id="demo" className="bg-black py-24">
                 <div className="mx-auto max-w-7xl px-6">
-                    {/* Header */}
-                    <div className="mb-14">
-                        <h2 className="text-3xl font-semibold">Product Demos</h2>
-                        <p className="mt-3 max-w-xl text-white/60">
-                            Videos autoplay as you scroll. Click any demo for full view.
-                        </p>
-                    </div>
 
                     {/* Grid */}
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

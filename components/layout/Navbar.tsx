@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Twitter } from "lucide-react";
+import { Mail, Twitter,X } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-black/60 backdrop-blur-2xl shadow-lg shadow-black/30 border-b border-white/10">
+    <header className="sticky top-0 z-50 w-full bg-black/60 backdrop-blur-2xl shadow-lg shadow-black/30">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* Left Logo */}

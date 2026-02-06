@@ -11,7 +11,7 @@ const videos = [
     {
         id: 2,
         title: "AI Engine Demo",
-        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/5347cba2-e5a4-4a49-b995-c9f6ddeac212-demo1.mp4",
+        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/IMG_5667.MP4",
     },
     { id: 3, title: "User Flow Demo", src: "https://your-cdn/video3.mp4" },
     { id: 4, title: "Real-world Use Case", src: "https://your-cdn/video4.mp4" },

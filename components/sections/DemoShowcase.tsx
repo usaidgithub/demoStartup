@@ -62,12 +62,10 @@ export default function DemoShowcase() {
         <>
             <section id="demo" className="bg-black py-24">
                 <div className="mx-auto max-w-7xl px-6">
-                    {/* Main Grid System:
-                        - 3 columns on Desktop (lg)
-                        - 2 columns on Tablet (md)
-                        - 1 column on Mobile
+                    {/* Grid setup: 
+                        - items-start ensures videos align to the top of their cells.
                     */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
 
                         {/* First 2 Videos (Row 1) */}
                         {videos.slice(0, 2).map((video, index) => (
@@ -92,28 +90,32 @@ export default function DemoShowcase() {
                         ))}
 
                         {/* The About Card:
-                            - Placed in the 3rd column of the first row.
-                            - 'lg:row-span-2' makes it span two rows high (Vertical Rectangle).
+                            - lg:col-start-3: Places it in the 3rd column.
+                            - lg:row-start-1: Ensures it shares the same row baseline as the first 2 videos.
+                            - self-end: This aligns the BOTTOM of this card with the BOTTOM of the videos in Row 1.
                         */}
-                        <div className="lg:row-span-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-10 shadow-lg flex flex-col justify-center">
-                            <p className="text-white leading-relaxed text-base">
-                                Welcome,
-
-                                Scroll your feed — tap a post. Instantly, you're immersed.
-                                A game level materializes. A cool mechanic unfolds.
-                                A 3D asset reveals itself in full detail as you examine materials and geometry.
-                                Tech prototypes await your testing and exploration.
-                                <br />
-                                <br />
-                                No downloads. No delays. Pure cloud.
-                                <br />
-                                <br />
-                                From games to art, mechanics, and innovative concepts —
-                                this is where discovery transforms into real-time experience, within the familiar social media environment.
-                            </p>
+                        <div className="lg:col-start-3 lg:row-start-1 flex self-end">
+                            <div className="w-full rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-8 shadow-lg">
+                                <div className="flex flex-col gap-4">
+                                    <p className="text-white leading-relaxed text-base">
+                                        Welcome,
+                                        <br />
+                                        <br />
+                                        Scroll your feed — tap a post. Instantly, you&apos;re immersed.
+                                        A game level materializes. A 3D asset reveals itself in full detail as you examine materials and geometry.
+                                        Tech prototypes await your testing and exploration.
+                                        <br />
+                                        <br />
+                                        <span className="text-blue-400 font-medium italic">
+                                            No downloads. No delays. Pure cloud.
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Remaining Videos (Will wrap under the first two and the card) */}
+
+                        {/* Remaining Videos flow naturally from Row 2 onwards */}
                         {videos.slice(2).map((video, index) => (
                             <div
                                 key={video.id}
@@ -137,7 +139,7 @@ export default function DemoShowcase() {
                     </div>
                 </div>
 
-                {/* Global Hover Title Display */}
+                {/* Hover Title Notification */}
                 <div
                     className={`fixed bottom-8 left-1/2 z-[90] -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white 
                     transition-all duration-300
@@ -147,7 +149,6 @@ export default function DemoShowcase() {
                 </div>
             </section>
 
-            {/* Fullscreen Modal */}
             <VideoModal src={activeVideo} onClose={() => setActiveVideo(null)} />
         </>
     );

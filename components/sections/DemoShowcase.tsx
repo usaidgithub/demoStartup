@@ -15,14 +15,14 @@ const videos = [
         src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/IMG_5667.MP4",
     },
     {
-        id: 3, 
-        title: "User Flow Demo", 
-        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/Video%20Project%209.mp4" 
+        id: 3,
+        title: "User Flow Demo",
+        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/Video%20Project%209.mp4"
     },
-    { 
-        id: 4, 
-        title: "Real-world Use Case", 
-        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/9%20%20(1).mp4" 
+    {
+        id: 4,
+        title: "Real-world Use Case",
+        src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/9%20%20(1).mp4"
     },
     { id: 5, title: "Admin Dashboard", src: "https://your-cdn/video5.mp4" },
     { id: 6, title: "Security & Privacy", src: "https://your-cdn/video6.mp4" },
@@ -68,7 +68,7 @@ export default function DemoShowcase() {
                         - 1 column on Mobile
                     */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        
+
                         {/* First 2 Videos (Row 1) */}
                         {videos.slice(0, 2).map((video, index) => (
                             <div
@@ -96,14 +96,20 @@ export default function DemoShowcase() {
                             - 'lg:row-span-2' makes it span two rows high (Vertical Rectangle).
                         */}
                         <div className="lg:row-span-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-10 shadow-lg flex flex-col justify-center">
-                            <h3 className="text-white text-xl font-medium mb-6">About Us</h3>
                             <p className="text-white leading-relaxed text-base">
-                                A social-media-style platform enabling instant access to cloud-streamed
-                                game and software demos without downloads.
+                                Welcome,
+
+                                Scroll your feed — tap a post. Instantly, you're immersed.
+                                A game level materializes. A cool mechanic unfolds.
+                                A 3D asset reveals itself in full detail as you examine materials and geometry.
+                                Tech prototypes await your testing and exploration.
                                 <br />
                                 <br />
-                                The platform combines short-form content discovery with interactive,
-                                hands-on demos powered by cloud GPU streaming.
+                                No downloads. No delays. Pure cloud.
+                                <br />
+                                <br />
+                                From games to art, mechanics, and innovative concepts —
+                                this is where discovery transforms into real-time experience, within the familiar social media environment.
                             </p>
                         </div>
 

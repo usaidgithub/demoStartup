@@ -80,7 +80,7 @@ export default function DemoShowcase() {
                                     <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full 
       bg-white/10 backdrop-blur-md border border-white/20 
       text-xs text-white font-medium tracking-wide">
-                                        Full Bootup Present Here
+                                        Full Bootup 
                                     </div>
 
                                     <video

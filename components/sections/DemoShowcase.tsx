@@ -13,6 +13,7 @@ const videos = [
         id: 2,
         title: "Partizon",
         src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/IMG_5667.MP4",
+        startAt: 113, // ✅ 1:53 = 113 seconds
     },
     {
         id: 3,
@@ -44,7 +45,8 @@ export default function DemoShowcase() {
                         video.play().catch(() => { });
                     } else {
                         video.pause();
-                        video.currentTime = 0;
+                        const start = Number(video.dataset.start) || 0;
+                        video.currentTime = start;
                     }
                 });
             },
@@ -80,7 +82,7 @@ export default function DemoShowcase() {
                                     <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full 
       bg-white/10 backdrop-blur-md border border-white/20 
       text-xs text-white font-medium tracking-wide">
-                                        Full Bootup 
+                                        Full Bootup
                                     </div>
 
                                     <video
@@ -93,6 +95,16 @@ export default function DemoShowcase() {
                                         loop
                                         playsInline
                                         preload="metadata"
+                                        data-start={video.startAt ?? 0}
+                                        onLoadedMetadata={(e) => {
+                                            const vid = e.currentTarget;
+                                            const startTime = video.startAt ?? 0;
+
+                                            if (startTime > 0) {
+                                                vid.currentTime = startTime;
+                                            }
+                                        }}
+
                                     >
                                         <source src={video.src} type="video/mp4" />
                                     </video>

@@ -11,7 +11,7 @@ const videos = [
     },
     {
         id: 2,
-        title: "Partizon",
+        title: "Partizan",
         src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/IMG_5667.MP4",
         startAt: 113, // ✅ 1:53 = 113 seconds
     },
@@ -42,12 +42,19 @@ export default function DemoShowcase() {
                 entries.forEach((entry) => {
                     const video = entry.target as HTMLVideoElement;
                     if (entry.isIntersecting) {
+                        const start = Number(video.dataset.start) || 0;
+
+                        if (start > 0 && video.currentTime < start) {
+                            video.currentTime = start;
+                        }
+
                         video.play().catch(() => { });
                     } else {
                         video.pause();
                         const start = Number(video.dataset.start) || 0;
                         video.currentTime = start;
                     }
+
                 });
             },
             { threshold: 0.6 }
@@ -90,24 +97,24 @@ export default function DemoShowcase() {
                                             if (el) videoRefs.current[index] = el;
                                         }}
                                         className="absolute inset-0 h-full w-full object-cover 
-        transition-transform duration-500 group-hover:scale-105"
+    transition-transform duration-500 group-hover:scale-105"
                                         muted
                                         loop
                                         playsInline
-                                        preload="metadata"
+                                        preload="auto"
                                         data-start={video.startAt ?? 0}
-                                        onLoadedMetadata={(e) => {
+                                        onCanPlay={(e) => {
                                             const vid = e.currentTarget;
                                             const startTime = video.startAt ?? 0;
 
-                                            if (startTime > 0) {
+                                            if (startTime > 0 && vid.currentTime < startTime) {
                                                 vid.currentTime = startTime;
                                             }
                                         }}
-
                                     >
                                         <source src={video.src} type="video/mp4" />
                                     </video>
+
 
                                     <div className="absolute inset-0 bg-gradient-to-t 
                                         from-black/70 via-transparent opacity-0 

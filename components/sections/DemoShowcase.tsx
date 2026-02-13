@@ -71,16 +71,15 @@ export default function DemoShowcase() {
         <>
             <section id="demo" className="bg-black py-24">
                 <div className="mx-auto max-w-7xl px-6">
-                    {/* --- New Header Text --- */}
-                    <div className="mb-16 flex justify-center">
-                        <h2 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase 
-                        bg-gradient-to-t from-white/20 via-white/80 to-white 
-                        bg-clip-text text-transparent 
-                        animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                    {/* --- Left-Aligned Header Text --- */}
+                    <div className="relative h-0 overflow-visible">
+                        <h2 className="absolute -top-16 left-0 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase 
+                bg-gradient-to-t from-white/10 via-white/70 to-white 
+                bg-clip-text text-transparent pointer-events-none">
                             Out March ‘26
                         </h2>
                     </div>
-                    {/* ----------------------- */}
+                    {/* ------------------------------- */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
 
                         {/* First 2 Videos (Row 1) */}

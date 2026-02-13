@@ -25,10 +25,10 @@ const videos = [
         title: "9 Child Street",
         src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/9%20%20(1).mp4"
     },
-    { id: 5, title: "Admin Dashboard", src: "https://your-cdn/video5.mp4" },
-    { id: 6, title: "Security & Privacy", src: "https://your-cdn/video6.mp4" },
-    { id: 7, title: "Mobile Experience", src: "https://your-cdn/video7.mp4" },
-    { id: 8, title: "Scalability Demo", src: "https://your-cdn/video8.mp4" },
+    { id: 5, title: "Empty", src: "https://your-cdn/video5.mp4" },
+    { id: 6, title: "Empty", src: "https://your-cdn/video6.mp4" },
+    { id: 7, title: "Empty", src: "https://your-cdn/video7.mp4" },
+    { id: 8, title: "Empty", src: "https://your-cdn/video8.mp4" },
 ];
 
 export default function DemoShowcase() {
@@ -71,6 +71,16 @@ export default function DemoShowcase() {
         <>
             <section id="demo" className="bg-black py-24">
                 <div className="mx-auto max-w-7xl px-6">
+                    {/* --- New Header Text --- */}
+                    <div className="mb-16 flex justify-center">
+                        <h2 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase 
+                        bg-gradient-to-t from-white/20 via-white/80 to-white 
+                        bg-clip-text text-transparent 
+                        animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                            Out March ‘26
+                        </h2>
+                    </div>
+                    {/* ----------------------- */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
 
                         {/* First 2 Videos (Row 1) */}

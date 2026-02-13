@@ -72,10 +72,15 @@ export default function DemoShowcase() {
             <section id="demo" className="bg-black py-24">
                 <div className="mx-auto max-w-7xl px-6">
                     {/* --- Left-Aligned Header Text --- */}
-                    <div className="relative h-0 overflow-visible">
-                        <h2 className="absolute -top-16 left-0 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase 
-                bg-gradient-to-t from-white/10 via-white/70 to-white 
-                bg-clip-text text-transparent pointer-events-none">
+                    <div className="relative h-0 overflow-visible z-10">
+                        <h2 className="absolute -top-12 md:-top-20 left-0 
+                            /* Sizing: Smaller on mobile, massive on desktop */
+                            text-4xl sm:text-5xl md:text-7xl lg:text-8xl 
+                            /* Layout: Ensure it doesn't wrap or vanish */
+                            whitespace-nowrap w-full
+                            font-bold tracking-tighter uppercase 
+                            bg-gradient-to-t from-white/10 via-white/70 to-white 
+                            bg-clip-text text-transparent pointer-events-none">
                             Out March ‘26
                         </h2>
                     </div>

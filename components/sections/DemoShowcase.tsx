@@ -120,11 +120,15 @@ export default function DemoShowcase() {
 
                     {/* ✅ Video OR Fallback */}
                     {isEmpty ? (
-                      <img
-                        src="/fallback.jpg"
-                        alt="Coming Soon"
-                        className="absolute inset-0 h-full w-full object-cover opacity-60"
-                      />
+                      <>
+                        <div className="absolute inset-0 bg-black/50" />
+                        <img
+                          src="/fallback.jpg"
+                          alt="Coming Soon"
+                          className="absolute inset-0 m-auto h-[50%] w-[50%]
+                          object-contain opacity-80"
+                        />
+                      </>
                     ) : (
                       <video
                         ref={(el) => {
@@ -150,6 +154,7 @@ export default function DemoShowcase() {
                       </video>
                     )}
 
+                    {/* Gradient Hover Overlay */}
                     <div
                       className="absolute inset-0 bg-gradient-to-t
                       from-black/70 via-transparent opacity-0
@@ -199,13 +204,17 @@ export default function DemoShowcase() {
                   onMouseLeave={() => setHoveredTitle(null)}
                 >
                   <div className="relative aspect-video w-full">
-                    {/* ✅ Video OR Image */}
+                    {/* ✅ Video OR Fallback */}
                     {isEmpty ? (
-                      <img
-                        src="/fallback.jpg"
-                        alt="Coming Soon"
-                        className="absolute inset-0 h-full w-full object-cover opacity-60"
-                      />
+                      <>
+                        <div className="absolute inset-0 bg-black/50" />
+                        <img
+                          src="/fallback.jpg"
+                          alt="Coming Soon"
+                          className="absolute inset-0 m-auto h-[60%] w-[60%]
+                          object-contain opacity-80"
+                        />
+                      </>
                     ) : (
                       <video
                         ref={(el) => {
@@ -222,6 +231,7 @@ export default function DemoShowcase() {
                       </video>
                     )}
 
+                    {/* Gradient Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition" />
                   </div>
                 </div>
@@ -233,7 +243,7 @@ export default function DemoShowcase() {
         {/* Hover Title Notification */}
         <div
           className={`fixed bottom-8 left-1/2 z-[90] -translate-x-1/2 px-4 py-2 rounded-full
-          bg-white/10 text-white text-sm backdrop-blur-md border border-white/20 transition
+          text-white
           ${
             hoveredTitle
               ? "opacity-100 translate-y-0"

@@ -6,8 +6,8 @@ import VideoModal from "@/components/ui/VideoModal";
 const videos = [
   {
     id: 1,
-    title: "Product Walkthrough",
-    src: "https://d2hc16lzmcm380.cloudfront.net/models/raw/5dfb298a-a83a-4632-9984-2836eb4178cc-Screen%20Recording%202025-12-21%20175503.mp4",
+    title: "Lidar",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/lidar.mp4",
   },
   {
     id: 2,

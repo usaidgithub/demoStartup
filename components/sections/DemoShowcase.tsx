@@ -85,7 +85,7 @@ export default function DemoShowcase() {
               bg-gradient-to-t from-white/10 via-white/70 to-white
               bg-clip-text text-transparent pointer-events-none"
             >
-              Out March ‘26
+              Out June ‘26
             </h2>
           </div>
 
@@ -174,9 +174,7 @@ export default function DemoShowcase() {
                   Welcome,
                   <br />
                   <br />
-                  Scroll your feed — tap a post. Instantly, you&apos;re immersed.
-                  A game level materializes. A 3D asset reveals itself in full
-                  detail as you examine materials and geometry.
+                  Share truly interactive posts with embedded 3D models, cloud-powered live demos, and direct executable code dropped straight into the feed.
                   <br />
                   <br />
                   <span className="text-blue-400 font-medium italic">

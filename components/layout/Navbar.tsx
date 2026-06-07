@@ -25,10 +25,6 @@ export default function Navbar() {
             <Mail size={16} />
             <span>adamya@rigzer.com</span>
           </a>
-          <a href="https://x.com/FedoraNoir" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition">
-            <Twitter size={16} />
-            <span>@FedoraNoir</span>
-          </a>
         </div>
 
         {/* Mobile View: Contact Toggle Icon */}
@@ -53,16 +49,6 @@ export default function Navbar() {
           >
             <Mail size={20} />
             <span className="text-sm font-medium">adamya@rigzer.com</span>
-          </a>
-          <a 
-            href="https://x.com/FedoraNoir" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center gap-3 text-white/80 hover:text-white"
-            onClick={() => setIsOpen(false)}
-          >
-            <Twitter size={20} />
-            <span className="text-sm font-medium">@FedoraNoir</span>
           </a>
         </div>
       )}

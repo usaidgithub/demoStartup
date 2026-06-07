@@ -174,7 +174,7 @@ export default function DemoShowcase() {
                   Welcome,
                   <br />
                   <br />
-                  Share truly interactive posts with embedded 3D models, cloud-powered live demos, and direct executable code dropped straight into the feed.
+                  Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
                   <br />
                   <br />
                   <span className="text-blue-400 font-medium italic">

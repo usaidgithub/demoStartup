@@ -7,7 +7,7 @@ const videos = [
   {
     id: 1,
     title: "Lidar",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/lidar.mp4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/Recording%202026-06-22%20220847%20(1).mp4",
   },
   {
     id: 2,

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
   title: "Rigzer",
@@ -15,8 +14,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-white antialiased">
-        <Navbar />
-        <main>{children}</main>
+        {/* The Navbar lives inside children (HomePage) to track state cleanly */}
+        {children}
       </body>
     </html>
   );

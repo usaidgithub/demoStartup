@@ -6,24 +6,24 @@ import VideoModal from "@/components/ui/VideoModal";
 const videos = [
   {
     id: 1,
-    title: "Lidar",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/Recording%202026-06-22%20220847%20(1).mp4",
+    title: "Full Demo",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Recording%202026-06-22%20220847%20(1).mp4",
   },
   {
     id: 2,
     title: "Partizan",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/IMG_5667.MP4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/IMG_5667.MP4",
     startAt: 113,
   },
   {
     id: 3,
     title: "Deep Snow Delivery",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/Video%20Project%209.mp4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Video%20Project%209.mp4",
   },
   {
     id: 4,
     title: "9 Child Street",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/9%20%20(1).mp4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/9%20(1).mp4",
   },
 
   // Placeholder Cards

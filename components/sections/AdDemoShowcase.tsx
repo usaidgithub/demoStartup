@@ -7,12 +7,12 @@ import VideoModal from "@/components/ui/VideoModal";
 const ads = [
   {
     id: 1,
-    title: "Main Campaign Promo",
+    title: "Test Ad Posts",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Screen_Recording_184437.mp4",
   },
   {
     id: 2,
-    title: "Interactive Ad Demo",
+    title: "Test Ad Posts",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Recording_225520.mp4",
   },
 ];
@@ -76,16 +76,15 @@ export default function AdDemoShowcase() {
                 >
                   {/* Container now has NO forced aspect ratio, wrapping the video tightly */}
                   <div className="relative w-full flex items-center justify-center overflow-hidden rounded-2xl">
-                    {/* Badge displayed only on top row elements for aesthetic balance */}
-                    {index < 2 && (
-                      <div
-                        className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
-                        bg-white/10 backdrop-blur-md border border-white/20
-                        text-xs text-white font-medium tracking-wide"
-                      >
-                        Live Preview
-                      </div>
-                    )}
+                    
+                    {/* Dynamic Badge Content based on video position */}
+                    <div
+                      className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
+                      bg-white/10 backdrop-blur-md border border-white/20
+                      text-xs text-white font-medium tracking-wide select-none"
+                    >
+                      {index === 0 ? "3D Ad" : "Media Ad"}
+                    </div>
 
                     {isEmpty ? (
                       <div className="relative aspect-video w-full bg-black/50 flex items-center justify-center">

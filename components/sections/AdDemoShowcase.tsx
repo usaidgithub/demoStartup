@@ -53,7 +53,7 @@ export default function AdDemoShowcase() {
         <div className="mx-auto max-w-7xl px-6">
 
           {/* --- Grid Layout --- */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
             {ads.map((ad, index) => {
               const isEmpty = !ad.src;
 
@@ -67,14 +67,15 @@ export default function AdDemoShowcase() {
                 <div
                   key={ad.id}
                   className="group relative overflow-hidden rounded-2xl
-                  border border-white/10 bg-black hover:border-white/30 transition cursor-pointer"
+                  border border-white/10 bg-neutral-950 hover:border-white/30 transition cursor-pointer"
                   onClick={() => {
                     if (!isEmpty) setActiveVideo(ad.src);
                   }}
                   onMouseEnter={() => setHoveredTitle(ad.title)}
                   onMouseLeave={() => setHoveredTitle(null)}
                 >
-                  <div className="relative aspect-video w-full">
+                  {/* Container now has NO forced aspect ratio, wrapping the video tightly */}
+                  <div className="relative w-full flex items-center justify-center overflow-hidden rounded-2xl">
                     {/* Badge displayed only on top row elements for aesthetic balance */}
                     {index < 2 && (
                       <div
@@ -87,23 +88,20 @@ export default function AdDemoShowcase() {
                     )}
 
                     {isEmpty ? (
-                      <>
-                        <div className="absolute inset-0 bg-black/50" />
+                      <div className="relative aspect-video w-full bg-black/50 flex items-center justify-center">
                         <img
                           src="/fallback.jpg"
                           alt="Coming Soon"
-                          className={`absolute inset-0 m-auto object-contain opacity-80 ${
-                            index < 2 ? "h-[50%] w-[50%]" : "h-[60%] w-[60%]"
-                          }`}
+                          className="h-[50%] w-[50%] object-contain opacity-80"
                         />
-                      </>
+                      </div>
                     ) : (
                       <video
                         ref={(el) => {
                           if (el) videoRefs.current[index] = el;
                         }}
-                        className="absolute inset-0 h-full w-full object-cover
-                        transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-auto block object-cover
+                        transition-transform duration-500 group-hover:scale-[1.02]"
                         muted
                         loop
                         playsInline
@@ -114,7 +112,7 @@ export default function AdDemoShowcase() {
                     )}
 
                     {/* Gradient Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent opacity-0 group-hover:opacity-100 transition pointer-events-none" />
                   </div>
                 </div>
               );

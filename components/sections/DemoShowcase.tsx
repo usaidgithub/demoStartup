@@ -25,12 +25,6 @@ const videos = [
     title: "9 Child Street",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/9%20(1).mp4",
   },
-
-  // Placeholder Cards
-  { id: 5, title: "Empty", src: null },
-  { id: 6, title: "Empty", src: null },
-  { id: 7, title: "Empty", src: null },
-  { id: 8, title: "Empty", src: null },
 ];
 
 export default function DemoShowcase() {

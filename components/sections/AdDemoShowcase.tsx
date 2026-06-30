@@ -8,12 +8,20 @@ const ads = [
   {
     id: 1,
     title: "Test Ad Posts",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Screen_Recording_184437.mp4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Godzilla_2026_06_29.mp4",
+    type: "3D Ad",
   },
   {
     id: 2,
     title: "Test Ad Posts",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Recording_225520.mp4",
+    type: "Media Ad",
+  },
+  {
+    id: 3,
+    title: "Test Ad Posts",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Screen_Recording_184437.mp4",
+    type: "3D Ad",
   },
 ];
 
@@ -30,7 +38,7 @@ export default function AdDemoShowcase() {
           const video = entry.target as HTMLVideoElement;
 
           if (entry.isIntersecting) {
-            video.play().catch(() => {});
+            video.play().catch(() => { });
           } else {
             video.pause();
             video.currentTime = 0; // Reset video to the beginning when out of view
@@ -59,7 +67,7 @@ export default function AdDemoShowcase() {
 
               // Setup elements to render
               const elements = [];
-              
+
               // ===============================================
               // VIDEO / FALLBACK CARDS
               // ===============================================
@@ -76,14 +84,14 @@ export default function AdDemoShowcase() {
                 >
                   {/* Container now has NO forced aspect ratio, wrapping the video tightly */}
                   <div className="relative w-full flex items-center justify-center overflow-hidden rounded-2xl">
-                    
+
                     {/* Dynamic Badge Content based on video position */}
                     <div
                       className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
-                      bg-white/10 backdrop-blur-md border border-white/20
-                      text-xs text-white font-medium tracking-wide select-none"
+                        bg-white/10 backdrop-blur-md border border-white/20
+                        text-xs text-white font-medium tracking-wide select-none"
                     >
-                      {index === 0 ? "3D Ad" : "Media Ad"}
+                      {ad.type}
                     </div>
 
                     {isEmpty ? (
@@ -125,11 +133,10 @@ export default function AdDemoShowcase() {
         <div
           className={`fixed bottom-8 left-1/2 z-[90] -translate-x-1/2 px-4 py-2 rounded-full
           text-white bg-white/10 backdrop-blur-md border border-white/20 transition-all duration-300
-          ${
-            hoveredTitle
+          ${hoveredTitle
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4 pointer-events-none"
-          }`}
+            }`}
         >
           {hoveredTitle}
         </div>

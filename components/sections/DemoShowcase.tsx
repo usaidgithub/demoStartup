@@ -46,7 +46,7 @@ export default function DemoShowcase() {
               video.currentTime = start;
             }
 
-            video.play().catch(() => {});
+            video.play().catch(() => { });
           } else {
             video.pause();
             const start = Number(video.dataset.start) || 0;
@@ -70,16 +70,25 @@ export default function DemoShowcase() {
       <section id="demo" className="bg-black py-24">
         <div className="mx-auto max-w-7xl px-6">
           {/* --- Header Text --- */}
+          {/* --- Header Text --- */}
           <div className="relative h-0 overflow-visible z-10">
             <h2
               className="absolute -top-12 md:-top-20 left-11
-              text-4xl sm:text-5xl md:text-7xl lg:text-8xl
-              whitespace-nowrap w-full
-              font-bold tracking-tighter uppercase
-              bg-gradient-to-t from-white/10 via-white/70 to-white
-              bg-clip-text text-transparent pointer-events-none"
+                text-4xl sm:text-5xl md:text-7xl lg:text-8xl
+                whitespace-nowrap w-full
+                font-bold tracking-tighter uppercase
+                bg-gradient-to-t from-white/10 via-white/70 to-white
+                bg-clip-text text-transparent pointer-events-none"
             >
-              Out June ‘26
+              Join now -{" "}
+              <a
+                href="https://rigzer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pointer-events-auto text-inherit hover:underline decoration-white/40 decoration-2 underline-offset-4"
+              >
+                Rigzer
+              </a>
             </h2>
           </div>
 
@@ -236,11 +245,10 @@ export default function DemoShowcase() {
         <div
           className={`fixed bottom-8 left-1/2 z-[90] -translate-x-1/2 px-4 py-2 rounded-full
           text-white
-          ${
-            hoveredTitle
+          ${hoveredTitle
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4 pointer-events-none"
-          }`}
+            }`}
         >
           {hoveredTitle}
         </div>

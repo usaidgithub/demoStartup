@@ -56,7 +56,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
             }`}
           >
             <Radio size={16} className={currentView === "feed" ? "animate-pulse" : ""} />
-            <span>Feed</span>
+            <span>Cloud</span>
           </button>
 
           {/* Ads Tab */}
@@ -69,7 +69,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
             }`}
           >
             <Layers size={16} />
-            <span>Ads</span>
+            <span>3D</span>
           </button>
         </div>
 
@@ -107,7 +107,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
             }`}
           >
             <Radio size={20} />
-            <span>Feed</span>
+            <span>Cloud</span>
           </button>
 
           {/* Mobile Ads */}
@@ -121,7 +121,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
             }`}
           >
             <Layers size={20} />
-            <span>Ads</span>
+            <span>3D</span>
           </button>
 
           <hr className="border-white/10 my-1" />

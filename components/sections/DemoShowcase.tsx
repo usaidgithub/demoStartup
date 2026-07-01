@@ -70,25 +70,25 @@ export default function DemoShowcase() {
       <section id="demo" className="bg-black py-24">
         <div className="mx-auto max-w-7xl px-6">
           {/* --- Header Text --- */}
-          {/* --- Header Text --- */}
           <div className="relative h-0 overflow-visible z-10">
             <h2
               className="absolute -top-12 md:-top-20 left-11
-                text-4xl sm:text-5xl md:text-7xl lg:text-8xl
-                whitespace-nowrap w-full
-                font-bold tracking-tighter uppercase
-                bg-gradient-to-t from-white/10 via-white/70 to-white
-                bg-clip-text text-transparent pointer-events-none"
+              text-4xl sm:text-5xl md:text-7xl lg:text-8xl
+              whitespace-nowrap w-full
+              font-bold tracking-tighter uppercase
+              bg-gradient-to-t from-white/10 via-white/70 to-white
+              bg-clip-text text-transparent pointer-events-none"
             >
-              Join now -{" "}
+              Join{" "}
               <a
                 href="https://rigzer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pointer-events-auto text-inherit hover:underline decoration-white/40 decoration-2 underline-offset-4"
+                className="pointer-events-auto bg-none text-[#62D4AE] drop-shadow-[0_0_15px_rgba(98,212,174,0.4)] hover:text-[#7cf0cb] transition-all hover:underline decoration-[#62D4AE]/40 decoration-2 underline-offset-4"
               >
                 Rigzer
-              </a>
+              </a>{" "}
+              now
             </h2>
           </div>
 

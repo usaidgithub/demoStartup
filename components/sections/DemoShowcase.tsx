@@ -13,7 +13,6 @@ const videos = [
     id: 2,
     title: "Partizan",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/VID_20260703174747.mp4",
-    startAt: 113,
   },
   {
     id: 3,
@@ -40,17 +39,10 @@ export default function DemoShowcase() {
           const video = entry.target as HTMLVideoElement;
 
           if (entry.isIntersecting) {
-            const start = Number(video.dataset.start) || 0;
-
-            if (start > 0 && video.currentTime < start) {
-              video.currentTime = start;
-            }
-
             video.play().catch(() => { });
           } else {
             video.pause();
-            const start = Number(video.dataset.start) || 0;
-            video.currentTime = start;
+            video.currentTime = 0;
           }
         });
       },
@@ -143,15 +135,6 @@ export default function DemoShowcase() {
                         loop
                         playsInline
                         preload="auto"
-                        data-start={video.startAt ?? 0}
-                        onCanPlay={(e) => {
-                          const vid = e.currentTarget;
-                          const startTime = video.startAt ?? 0;
-
-                          if (startTime > 0 && vid.currentTime < startTime) {
-                            vid.currentTime = startTime;
-                          }
-                        }}
                       >
                         <source src={video.src} type="video/mp4" />
                       </video>

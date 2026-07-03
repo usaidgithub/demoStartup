@@ -12,7 +12,7 @@ const videos = [
   {
     id: 2,
     title: "Partizan",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/IMG_5667.MP4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/VID_20260703174747.mp4",
     startAt: 113,
   },
   {

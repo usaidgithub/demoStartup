@@ -80,7 +80,6 @@ export default function DemoShowcase() {
               >
                 Rigzer
               </a>{" "}
-              now
             </h2>
           </div>
 
@@ -155,11 +154,8 @@ export default function DemoShowcase() {
                 TEXT CARD (Row 1 Right)
             =============================== */}
             <div className="lg:col-start-3 lg:row-start-1 flex self-end">
-              <div className="w-full rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-8 shadow-lg">
+              <div className="w-full rounded-2xl backdrop-blur-xl p-8 shadow-lg">
                 <p className="text-white leading-relaxed text-base">
-                  Welcome,
-                  <br />
-                  <br />
                   Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
                   <br />
                   <br />

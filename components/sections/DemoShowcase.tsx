@@ -167,7 +167,7 @@ export default function DemoShowcase() {
             </div>
 
             {/* ===============================
-                REMAINING VIDEOS
+                REMAINING VIDEOS (ROW 2)
             =============================== */}
             {videos.slice(2).map((video, index) => {
               const isEmpty = !video.src;

@@ -7,7 +7,7 @@ const videos = [
   {
     id: 1,
     title: "Full Demo",
-    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Recording%202026-06-22%20220847%20(1).mp4",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/trimmed_Recording_192854.mp4",
   },
   {
     id: 2,

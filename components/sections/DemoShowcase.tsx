@@ -173,7 +173,7 @@ export default function DemoShowcase() {
                   =============================== */}
                   {index === 1 && (
                     <div className="col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 flex self-end">
-                      <div className="w-full rounded-2xl backdrop-blur-xl p-8 shadow-lg border border-white/5 bg-white/[0.01]">
+                      <div className="w-full rounded-2xl p-8 shadow-lg">
                         <p className="text-white leading-relaxed text-base">
                           Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
                           <br />

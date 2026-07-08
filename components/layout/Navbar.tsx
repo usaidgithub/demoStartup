@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Mail, ContactIcon, X, Radio, Layers } from "lucide-react";
 
 interface NavbarProps {
@@ -16,20 +15,20 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
     <header className="sticky top-0 z-50 w-full bg-black/60 backdrop-blur-2xl shadow-lg shadow-black/30">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
 
-        {/* Left Logo (Forces back to Feed) */}
+        {/* Left: Logo (Forces back to Feed) */}
         <button
           onClick={() => {
             onViewChange("feed");
             setIsOpen(false);
           }}
-          className="flex items-center gap-3 transition-opacity hover:opacity-90 group text-left bg-transparent border-none outline-none cursor-pointer"
+          className="flex items-center gap-2 sm:gap-3 transition-opacity hover:opacity-90 group text-left bg-transparent border-none outline-none cursor-pointer shrink-0"
         >
           <svg
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             viewBox="0 0 2000 2000"
-            className="w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:scale-105"
+            className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-105"
             style={{ color: "#62D4AE" }}
           >
             <polygon fill="currentColor" points="417.3 988.73 660.71 1159.38 582.7 1465.46 417.3 1270 417.3 988.73" />
@@ -44,36 +43,36 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
           </span>
         </button>
 
-        {/* Center: Main Nav Links */}
-        <div className="hidden sm:flex items-center gap-8 text-sm">
+        {/* Center: Main Nav Links (Visible inline on both mobile & desktop) */}
+        <div className="flex items-center gap-4 sm:gap-8 text-xs sm:text-sm mx-auto sm:mx-0">
           {/* Feed Tab */}
           <button
             onClick={() => onViewChange("feed")}
-            className={`flex items-center gap-2 font-medium tracking-wide transition-all outline-none border-none bg-transparent cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-2 font-medium tracking-wide transition-all outline-none border-none bg-transparent cursor-pointer ${
               currentView === "feed"
                 ? "text-[#62D4AE] drop-shadow-[0_0_10px_rgba(98,212,174,0.4)]"
                 : "text-white/60 hover:text-white"
             }`}
           >
-            <Radio size={16} className={currentView === "feed" ? "animate-pulse" : ""} />
+            <Radio size={14} className={currentView === "feed" ? "animate-pulse" : ""} />
             <span>Cloud</span>
           </button>
 
           {/* Ads Tab */}
           <button
             onClick={() => onViewChange("ads")}
-            className={`flex items-center gap-2 font-medium tracking-wide transition-all outline-none border-none bg-transparent cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-2 font-medium tracking-wide transition-all outline-none border-none bg-transparent cursor-pointer ${
               currentView === "ads"
                 ? "text-[#62D4AE] drop-shadow-[0_0_10px_rgba(98,212,174,0.4)]"
                 : "text-white/60 hover:text-white"
             }`}
           >
-            <Layers size={16} />
+            <Layers size={14} />
             <span>3D</span>
           </button>
         </div>
 
-        {/* Right: Contact Email */}
+        {/* Right Desktop: Contact Email */}
         <div className="hidden sm:flex items-center text-sm">
           <a href="mailto:adamya@rigzer.com" className="flex items-center gap-2 text-white/70 hover:text-white transition">
             <Mail size={16} />
@@ -81,51 +80,21 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
           </a>
         </div>
 
-        {/* Mobile Burger Trigger */}
-        <div className="sm:hidden">
+        {/* Right Mobile: Burger Trigger */}
+        <div className="sm:hidden shrink-0">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white p-2 transition-colors bg-transparent border-none outline-none"
             aria-label="Toggle Navigation"
           >
-            {isOpen ? <X size={24} /> : <ContactIcon size={24} />}
+            {isOpen ? <X size={22} /> : <ContactIcon size={22} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu (Only opens for the email now) */}
       {isOpen && (
         <div className="sm:hidden bg-black/95 border-t border-white/10 p-5 flex flex-col gap-5 animate-in slide-in-from-top duration-200">
-          {/* Mobile Feed */}
-          <button
-            onClick={() => {
-              onViewChange("feed");
-              setIsOpen(false);
-            }}
-            className={`flex items-center gap-3 text-sm font-medium text-left border-none bg-transparent ${
-              currentView === "feed" ? "text-[#62D4AE]" : "text-white/80"
-            }`}
-          >
-            <Radio size={20} />
-            <span>Cloud</span>
-          </button>
-
-          {/* Mobile Ads */}
-          <button
-            onClick={() => {
-              onViewChange("ads");
-              setIsOpen(false);
-            }}
-            className={`flex items-center gap-3 text-sm font-medium text-left border-none bg-transparent ${
-              currentView === "ads" ? "text-[#62D4AE]" : "text-white/80"
-            }`}
-          >
-            <Layers size={20} />
-            <span>3D</span>
-          </button>
-
-          <hr className="border-white/10 my-1" />
-
           {/* Mobile Mail */}
           <a
             href="mailto:adamya@rigzer.com"

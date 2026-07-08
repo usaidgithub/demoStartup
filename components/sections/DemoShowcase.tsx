@@ -114,7 +114,7 @@ export default function DemoShowcase() {
                   {/* ✅ Text injected inside the container above the 3rd video */}
                   {isThird && (
                     <div className="mb-3 px-1 text-sm font-medium tracking-wide text-zinc-400">
-                      Pocket ads goes here
+                      Your Code. Your Pocket. Change it Daily; Reach Without Limits!
                     </div>
                   )}
 

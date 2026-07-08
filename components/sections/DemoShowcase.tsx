@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Fragment } from "react"; // Added Fragment here
 import VideoModal from "@/components/ui/VideoModal";
 
 const videos = [
@@ -93,96 +93,101 @@ export default function DemoShowcase() {
             
             {/* ===============================
                 ALL VIDEOS COMPONENT LOOP
-            =============================== */}
+            ============================== */}
             {videos.map((video, index) => {
               const isEmpty = !video.src;
               const isFirst = index === 0;
               const isThird = index === 2; // "Pockets" video
 
               return (
-                <div
-                  key={video.id}
-                  className={`group relative overflow-hidden rounded-2xl
-                  border border-white/10 bg-black hover:border-white/30 transition
-                  ${isThird ? "p-4 bg-white/[0.02] backdrop-blur-sm" : ""}`} // Container styling for the 3rd item
-                  onClick={() => {
-                    if (!isEmpty) setActiveVideo(video.src);
-                  }}
-                  onMouseEnter={() => setHoveredTitle(video.title)}
-                  onMouseLeave={() => setHoveredTitle(null)}
-                >
-                  {/* ✅ Text injected inside the container above the 3rd video */}
-                  {isThird && (
-                    <div className="mb-3 px-1 text-sm font-medium tracking-wide text-zinc-400">
-                      Your Code. Your Pocket. Change it Daily; Reach Without Limits!
-                    </div>
-                  )}
-
-                  <div className="relative aspect-video w-full rounded-xl overflow-hidden">
-                    {/* Badge - ONLY ON THE FIRST VIDEO */}
-                    {isFirst && (
-                      <div
-                        className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
-                        bg-white/10 backdrop-blur-md border border-white/20
-                        text-xs text-white font-medium tracking-wide"
-                      >
-                        Full Bootup
+                <Fragment key={video.id}> {/* Changed from React.Fragment */}
+                  <div
+                    className={`group relative overflow-hidden rounded-2xl transition duration-300
+                    ${isThird 
+                      ? "p-4 bg-[#62D4AE]/[0.03] border border-[#62D4AE]/30 shadow-[0_0_25px_rgba(98,212,174,0.05)] hover:border-[#62D4AE]/60" 
+                      : "border border-white/10 bg-black hover:border-white/30"
+                    }`}
+                    onClick={() => {
+                      if (!isEmpty) setActiveVideo(video.src);
+                    }}
+                    onMouseEnter={() => setHoveredTitle(video.title)}
+                    onMouseLeave={() => setHoveredTitle(null)}
+                  >
+                    {/* ✅ Styled header text inside the custom-colored container */}
+                    {isThird && (
+                      <div className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-[#62D4AE]/90 drop-shadow-[0_0_10px_rgba(98,212,174,0.2)]">
+                        Your Code. Your Pocket. Change it Daily; Reach Without Limits!
                       </div>
                     )}
 
-                    {/* Video OR Fallback */}
-                    {isEmpty ? (
-                      <>
-                        <div className="absolute inset-0 bg-black/50" />
-                        <img
-                          src="/fallback.jpg"
-                          alt="Coming Soon"
-                          className="absolute inset-0 m-auto h-[50%] w-[50%]
-                          object-contain opacity-80"
-                        />
-                      </>
-                    ) : (
-                      <video
-                        ref={(el) => {
-                          if (el) videoRefs.current[index] = el;
-                        }}
-                        className="absolute inset-0 h-full w-full object-cover
-                        transition-transform duration-500 group-hover:scale-105"
-                        muted
-                        loop
-                        playsInline
-                        preload={isFirst ? "auto" : "metadata"}
-                      >
-                        <source src={video.src} type="video/mp4" />
-                      </video>
-                    )}
+                    <div className="relative aspect-video w-full rounded-xl overflow-hidden">
+                      {/* Badge - ONLY ON THE FIRST VIDEO */}
+                      {isFirst && (
+                        <div
+                          className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
+                          bg-white/10 backdrop-blur-md border border-white/20
+                          text-xs text-white font-medium tracking-wide"
+                        >
+                          Full Bootup
+                        </div>
+                      )}
 
-                    {/* Gradient Hover Overlay */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-t
-                      from-black/70 via-transparent opacity-0
-                      group-hover:opacity-100 transition"
-                    />
+                      {/* Video OR Fallback */}
+                      {isEmpty ? (
+                        <>
+                          <div className="absolute inset-0 bg-black/50" />
+                          <img
+                            src="/fallback.jpg"
+                            alt="Coming Soon"
+                            className="absolute inset-0 m-auto h-[50%] w-[50%]
+                            object-contain opacity-80"
+                          />
+                        </>
+                      ) : (
+                        <video
+                          ref={(el) => {
+                            if (el) videoRefs.current[index] = el;
+                          }}
+                          className="absolute inset-0 h-full w-full object-cover
+                          transition-transform duration-500 group-hover:scale-105"
+                          muted
+                          loop
+                          playsInline
+                          preload={isFirst ? "auto" : "metadata"}
+                        >
+                          <source src={video.src} type="video/mp4" />
+                        </video>
+                      )}
+
+                      {/* Gradient Hover Overlay */}
+                      <div
+                        className="absolute inset-0 bg-gradient-to-t
+                        from-black/70 via-transparent opacity-0
+                        group-hover:opacity-100 transition"
+                      />
+                    </div>
                   </div>
-                </div>
+
+                  {/* ===============================
+                      TEXT CARD (Injected directly after 2nd video)
+                  =============================== */}
+                  {index === 1 && (
+                    <div className="col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 flex self-end">
+                      <div className="w-full rounded-2xl backdrop-blur-xl p-8 shadow-lg border border-white/5 bg-white/[0.01]">
+                        <p className="text-white leading-relaxed text-base">
+                          Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
+                          <br />
+                          <br />
+                          <span className="text-blue-400 font-medium italic">
+                            No downloads. No delays. Pure cloud.
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </Fragment>
               );
             })}
-
-            {/* ===============================
-                TEXT CARD (Row 1 Column 3)
-            =============================== */}
-            <div className="col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 flex self-end order-3 lg:order-none">
-              <div className="w-full rounded-2xl backdrop-blur-xl p-8 shadow-lg">
-                <p className="text-white leading-relaxed text-base">
-                  Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
-                  <br />
-                  <br />
-                  <span className="text-blue-400 font-medium italic">
-                    No downloads. No delays. Pure cloud.
-                  </span>
-                </p>
-              </div>
-            </div>
 
           </div>
         </div>

@@ -16,11 +16,16 @@ const videos = [
   },
   {
     id: 3,
+    title: "Pockets",
+    src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Screen_Recording_210459.mp4",
+  },
+  {
+    id: 4,
     title: "Deep Snow Delivery",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/Video%20Project%209.mp4",
   },
   {
-    id: 4,
+    id: 5,
     title: "9 Child Street",
     src: "https://d2hc16lzmcm380.cloudfront.net/media/videos/demos/9%20(1).mp4",
   },
@@ -85,34 +90,47 @@ export default function DemoShowcase() {
 
           {/* --- Grid Layout --- */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
+            
             {/* ===============================
-                FIRST 2 VIDEOS
+                ALL VIDEOS COMPONENT LOOP
             =============================== */}
-            {videos.slice(0, 2).map((video, index) => {
+            {videos.map((video, index) => {
               const isEmpty = !video.src;
+              const isFirst = index === 0;
+              const isThird = index === 2; // "Pockets" video
 
               return (
                 <div
                   key={video.id}
-                  className="group relative overflow-hidden rounded-2xl
-                  border border-white/10 bg-black hover:border-white/30 transition"
+                  className={`group relative overflow-hidden rounded-2xl
+                  border border-white/10 bg-black hover:border-white/30 transition
+                  ${isThird ? "p-4 bg-white/[0.02] backdrop-blur-sm" : ""}`} // Container styling for the 3rd item
                   onClick={() => {
                     if (!isEmpty) setActiveVideo(video.src);
                   }}
                   onMouseEnter={() => setHoveredTitle(video.title)}
                   onMouseLeave={() => setHoveredTitle(null)}
                 >
-                  <div className="relative aspect-video w-full">
-                    {/* Badge */}
-                    <div
-                      className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
-                      bg-white/10 backdrop-blur-md border border-white/20
-                      text-xs text-white font-medium tracking-wide"
-                    >
-                      Full Bootup
+                  {/* ✅ Text injected inside the container above the 3rd video */}
+                  {isThird && (
+                    <div className="mb-3 px-1 text-sm font-medium tracking-wide text-zinc-400">
+                      Pocket ads goes here
                     </div>
+                  )}
 
-                    {/* ✅ Video OR Fallback */}
+                  <div className="relative aspect-video w-full rounded-xl overflow-hidden">
+                    {/* Badge - ONLY ON THE FIRST VIDEO */}
+                    {isFirst && (
+                      <div
+                        className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full
+                        bg-white/10 backdrop-blur-md border border-white/20
+                        text-xs text-white font-medium tracking-wide"
+                      >
+                        Full Bootup
+                      </div>
+                    )}
+
+                    {/* Video OR Fallback */}
                     {isEmpty ? (
                       <>
                         <div className="absolute inset-0 bg-black/50" />
@@ -133,7 +151,7 @@ export default function DemoShowcase() {
                         muted
                         loop
                         playsInline
-                        preload="auto"
+                        preload={isFirst ? "auto" : "metadata"}
                       >
                         <source src={video.src} type="video/mp4" />
                       </video>
@@ -151,9 +169,9 @@ export default function DemoShowcase() {
             })}
 
             {/* ===============================
-                TEXT CARD (Row 1 Right)
+                TEXT CARD (Row 1 Column 3)
             =============================== */}
-            <div className="lg:col-start-3 lg:row-start-1 flex self-end">
+            <div className="col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 flex self-end order-3 lg:order-none">
               <div className="w-full rounded-2xl backdrop-blur-xl p-8 shadow-lg">
                 <p className="text-white leading-relaxed text-base">
                   Share truly interactive posts with embedded 3D models, cloud-powered live demos, and code-in creator wall code dropped straight into the feed.
@@ -166,64 +184,13 @@ export default function DemoShowcase() {
               </div>
             </div>
 
-            {/* ===============================
-                REMAINING VIDEOS (ROW 2)
-            =============================== */}
-            {videos.slice(2).map((video, index) => {
-              const isEmpty = !video.src;
-
-              return (
-                <div
-                  key={video.id}
-                  className="group relative overflow-hidden rounded-2xl
-                  border border-white/10 bg-black hover:border-white/30 transition"
-                  onClick={() => {
-                    if (!isEmpty) setActiveVideo(video.src);
-                  }}
-                  onMouseEnter={() => setHoveredTitle(video.title)}
-                  onMouseLeave={() => setHoveredTitle(null)}
-                >
-                  <div className="relative aspect-video w-full">
-                    {/* ✅ Video OR Fallback */}
-                    {isEmpty ? (
-                      <>
-                        <div className="absolute inset-0 bg-black/50" />
-                        <img
-                          src="/fallback.jpg"
-                          alt="Coming Soon"
-                          className="absolute inset-0 m-auto h-[60%] w-[60%]
-                          object-contain opacity-80"
-                        />
-                      </>
-                    ) : (
-                      <video
-                        ref={(el) => {
-                          if (el) videoRefs.current[index + 2] = el;
-                        }}
-                        className="absolute inset-0 h-full w-full object-cover
-                        transition-transform duration-500 group-hover:scale-105"
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                      >
-                        <source src={video.src} type="video/mp4" />
-                      </video>
-                    )}
-
-                    {/* Gradient Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition" />
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
 
         {/* Hover Title Notification */}
         <div
           className={`fixed bottom-8 left-1/2 z-[90] -translate-x-1/2 px-4 py-2 rounded-full
-          text-white
+          text-white bg-black/40 backdrop-blur-md border border-white/10 transition-all duration-300
           ${hoveredTitle
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4 pointer-events-none"
